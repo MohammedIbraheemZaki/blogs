@@ -7,8 +7,13 @@ const useFetch = (endPoint) => {
 
   const [data, setDate] = useState(null)
   useEffect(() => {
+
+    // cleanup function
+    const abortCont = new AbortController()
+
     setTimeout(() => {
-      fetch(endPoint)
+      // second args that use to make cleanup => stop fetch if we are not in functions page
+      fetch(endPoint, {signal: abortCont.signal} )
         .then(res => {
           // handle error from server
           if(!res.ok){
@@ -23,10 +28,15 @@ const useFetch = (endPoint) => {
           // console.log(data);
         })
         .catch(err => {
-          setPending(false)
-          setError(err.message)
+          if (err.name === 'AbortError'){
+            console.log('fetch abort');
+          } else {
+            setPending(false)
+            setError(err.message)
+          }
         })
-    }, 3000)
+    }, 3000);
+    return () => abortCont.abort();
   }, [endPoint]);
   return {
     data, pending, error
