@@ -10,8 +10,8 @@ import About from './About';
 import Create from './Create';
 
 function App() {
-  const title = 'Welcome to the new blog'
-  const likes = 50
+  // const title = 'Welcome to the new blog'
+  // const likes = 50
   // const [name, setName] = useState('mohammed')
   // const [error, setError] = useState(null)
 
