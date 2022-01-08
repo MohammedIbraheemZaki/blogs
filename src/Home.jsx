@@ -13,7 +13,8 @@ const Home = () => {
   //   console.log('hello from another click with args => '+name);
   // }
   
-  const {data: blogs, pending, error} = useFetch('http://localhost:8000/blogs')
+  // const {data: blogs, pending, error} = useFetch('http://localhost:8000/blogs')
+  const {data: blogs, pending, error} = useFetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
 
   return (
     <div className='home'>

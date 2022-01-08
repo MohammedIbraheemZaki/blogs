@@ -35,7 +35,7 @@ const useFetch = (endPoint) => {
             setError(err.message)
           }
         })
-    }, 3000);
+    }, 100);
     return () => abortCont.abort();
   }, [endPoint]);
   return {

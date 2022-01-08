@@ -3,6 +3,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.scss';
 import NavBar from './components/NavBar';
+import Blog from './components/Blog';
 // import Blogs from './components/Blogs';
 // import useFetch from './useFetch';
 import Home from './Home';
@@ -61,11 +62,14 @@ function App() {
             <Route exact path="/" >
               <Home/>
             </Route>
-            <Route path="/about" >
+            <Route exact path="/about" >
               <About/>
             </Route>
             <Route path="/create" >
               <Create/>
+            </Route>
+            <Route path="/blog/:id" >
+              <Blog/>
             </Route>
 
           </Switch>
