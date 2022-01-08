@@ -9,6 +9,7 @@ import Blog from './components/Blog';
 import Home from './Home';
 import About from './About';
 import Create from './Create';
+import NotFound from './NotFound';
 
 function App() {
   // const title = 'Welcome to the new blog'
@@ -62,7 +63,7 @@ function App() {
             <Route exact path="/" >
               <Home/>
             </Route>
-            <Route exact path="/about" >
+            <Route path="/about" >
               <About/>
             </Route>
             <Route path="/create" >
@@ -71,7 +72,9 @@ function App() {
             <Route path="/blog/:id" >
               <Blog/>
             </Route>
-
+            <Route path="*" >
+              <NotFound/>
+            </Route>
           </Switch>
           
           {/* <button onClick={() => setName('ahmed')} >change name</button> */}

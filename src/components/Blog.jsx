@@ -1,11 +1,21 @@
 // import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import useFetch from '../useFetch';
 
 const Blog = () => {
   const {id} = useParams();
 
-  const { data: blog, error, pending} = useFetch('https://jsonplaceholder.typicode.com/posts/'+id)
+  const { data: blog, error, pending} = useFetch('http://localhost:8000/blogs/'+id)
+
+  const history = useHistory()
+
+  const handleDelete = (id) => {
+    fetch('http://localhost:8000/blogs/'+blog.id, {
+      method: 'DELETE'
+    }).then(() => {
+      history.push('/')
+    })
+  }
 
   return (
     <div className='blog-details'>
@@ -15,6 +25,8 @@ const Blog = () => {
         <article className='blog-item' >
           <h1>{blog.title}</h1>
           <p>{blog.body}</p>
+          <p>{blog.author}</p>
+          <button onClick={() => handleDelete(blog.id)} >Delete Blog</button>
         </article>
       )}
       {/* <h2>Blog Details : {id}</h2> */}
