@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react';
 const useFetch = (endPoint) => {
   const [error, setError] = useState(null)
 
