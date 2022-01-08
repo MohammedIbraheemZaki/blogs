@@ -1,0 +1,16 @@
+.content{
+  padding: 0 100px;
+  
+}
+.blog-item{
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  padding: 16px;
+  transition: .3s ease all;
+  h2{
+    color: #f1356d;
+  }
+  &:hover{
+    box-shadow: 1px 3px 5px rgba($color: #000000, $alpha: .2);
+  }
+}
