@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
   h1{
     color: #f1356d;
   }
